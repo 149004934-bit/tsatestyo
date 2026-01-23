@@ -672,6 +672,8 @@
       color:#fff;
       z-index:10001;
     }
+    button onclick="hideDragRacer()" style="position:absolute;top:15px;right:25px;background:rgba(255,0,0,0.8);color:#fff;padding:8px 12px;border:none;cursor:pointer;">Close</button>
+    <iframe src="https://archive.org/embed/drag_racer_v3" style="width:90%;height:80%;border:1px solid #fff;" frameborder="0"></iframe>
     /* SKIBIDI / RETRO BOWL */
     #skibidi-page {
       display:none;
@@ -680,6 +682,8 @@
       background:#000;
       z-index:10002;
     }
+    button onclick="hideSkibidi()" style="position:absolute;top:15px;right:25px;background:red;color:white;padding:10px 20px;font-size:1.5em;border:none;cursor:pointer;z-index:10;">X</button>
+    <iframe src="https://centeredu20.github.io/g5/class-400" style="width:100%;height:100%;border:none;"></iframe>
     /* MOVIES PAGE */
     #movies-page {
       display:none;
@@ -805,7 +809,7 @@
     }
     .assistant-message {
       align-self: flex-start;
-      background-color: #F3E5F5; /* Purple 50 */
+      background-color: #F3E5F5; /* Purple 5 */
       color: black;
       border-top-right-radius: 0;
     }
@@ -1330,18 +1334,25 @@
     let typingActive = false;
 
     const introLines = [
-      "BOOTING UP",
-  "STARTING UP GAMES AND MOVIES",
-  "SCRAPING FOR DATA TO SELL TO THE IDF,
-  "COMPLETE...",
-  "",
-  "USING MONEY TO BOOK FLIGHT IN NEXT HOUR...",
-  "FLIGHT BOOKED TO LOCATION: Tel Aviv",
-  "",
-  "*----------------------------------------------------------*",
-  "READY TO HEAD TO THE LAGOON?",
-  "*----------------------------------------------------------*",
-  "ERROR..."
+      "LOOSEB = $1B",
+      "LOOSEB HEX 01,1E,01,1F,1F,01,01,01,1F,1F,1F",
+      "LOOSEBY DFB 00,01,00,-1,-1,00,00,00,-1,-1,-1",
+      "LOOSED HEX 15,2C,15,2D,2D,15,15,15,2D,2D,2D",
+      "",
+      "FFALLING = 10  ;1ST \"FALLING\" FRAME",
+      ";MUST MATCH MOVEDATA",
+      "",
+      "*----------------------------------------------------------*",
+      "SPECIALFLASK = $95",
+      "",
+      "SWORDGLEAM1 = $B3",
+      "SWORDGLEAM0 = $99",
+      "",
+      "*----------------------------------------------------------*",
+      "* PANELS",
+      "PANELBO = $9E",
+      "PANELCO = $9F",
+      "NUMPANS = 3"
     ];
 
     function typeNextChar() {
@@ -1416,9 +1427,8 @@
       const cube = document.getElementById('cube');
       cube.classList.add('slide');
       setTimeout(() => {
-        document.body.appendChild(document.getElementById('title-screen'));
-        document.getElementById('transition-container').style.display = 'none';
         document.getElementById('title-screen').classList.add('visible');
+        document.getElementById('loader').classList.add('hidden');
       }, 1500);
     }
 
@@ -1431,14 +1441,13 @@
     //  TITLE SCREEN LOGIC
     // ──────────────────────────────────────────────────────────────
     const splashTexts = [
-     "wish I was as cool as Yamgang",
-      "hmu on the gram (@litho_band)",
-      "ALL of US are taking that flight",
-      "this is stealing your data rn",
-      "XVA GAMES is lwk better",
-      "yoai, yuri or FUTA?",
-      "goon lagoon final form",
-      "anything but your work"
+      "only in ohio bro 💀💀",
+      "skibidi ohio rizz gyatt moment",
+      "goon responsibly king",
+      "barfbagx2 world domination",
+      "freaky on main",
+      "T-50 VRIL or bust",
+      "goon lagoon final form"
     ];
 
     document.getElementById('splash-text').textContent =
@@ -1453,6 +1462,7 @@
     document.getElementById('settings-button').onclick = () => {
       document.getElementById('settings-menu').classList.add('visible');
     };
+
     document.getElementById('close-settings').onclick = () => {
       document.getElementById('settings-menu').classList.remove('visible');
     };
@@ -1602,6 +1612,7 @@
       }
       requestAnimationFrame(anim);
     }
+
     anim();
 
     window.addEventListener('resize', () => {
@@ -1611,4 +1622,3 @@
   </script>
 </body>
 </html>
-
