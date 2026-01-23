@@ -356,81 +356,70 @@
     }
      /* Themes */
     .theme-default {
-      --theme-bg:#000;
-      --theme-ac:#0f0;
-      --theme-tx:#0f0;
-      --theme-cd:rgba(10,10,10,0.9);
-      --theme-hv:#0ff;
+      --ac:#0f0;
+      --tx:#0f0;
+      --cd:rgba(10,10,10,0.9);
+      --hv:#0ff;
     }
     .theme-red {
-      --theme-bg:#300;
-      --theme-ac:#f00;
-      --theme-tx:#f00;
-      --theme-cd:rgba(50,0,0,0.9);
-      --theme-hv:#f88;
+      --ac:#f00;
+      --tx:#f00;
+      --cd:rgba(50,0,0,0.9);
+      --hv:#f88;
     }
     .theme-blue {
-      --theme-bg:#003;
-      --theme-ac:#00f;
-      --theme-tx:#00f;
-      --theme-cd:rgba(0,0,50,0.9);
-      --theme-hv:#88f;
+      --ac:#00f;
+      --tx:#00f;
+      --cd:rgba(0,0,50,0.9);
+      --hv:#88f;
     }
     .theme-purple {
-      --theme-bg:#303;
-      --theme-ac:#f0f;
-      --theme-tx:#f0f;
-      --theme-cd:rgba(50,0,50,0.9);
-      --theme-hv:#f8f;
+      --ac:#f0f;
+      --tx:#f0f;
+      --cd:rgba(50,0,50,0.9);
+      --hv:#f8f;
     }
     .theme-cyan {
-      --theme-bg:#033;
-      --theme-ac:#0ff;
-      --theme-tx:#0ff;
-      --theme-cd:rgba(0,50,50,0.9);
-      --theme-hv:#8ff;
+      --ac:#0ff;
+      --tx:#0ff;
+      --cd:rgba(0,50,50,0.9);
+      --hv:#8ff;
     }
     .theme-yellow {
-      --theme-bg:#330;
-      --theme-ac:#ff0;
-      --theme-tx:#ff0;
-      --theme-cd:rgba(50,50,0,0.9);
-      --theme-hv:#ff8;
+      --ac:#ff0;
+      --tx:#ff0;
+      --cd:rgba(50,50,0,0.9);
+      --hv:#ff8;
     }
     .theme-pink {
-      --theme-bg:#303;
-      --theme-ac:#f0f;
-      --theme-tx:#f0f;
-      --theme-cd:rgba(50,0,50,0.9);
-      --theme-hv:#f8f;
+      --ac:#f0f;
+      --tx:#f0f;
+      --cd:rgba(50,0,50,0.9);
+      --hv:#f8f;
     }
     .theme-green {
-      --theme-bg:#030;
-      --theme-ac:#0f0;
-      --theme-tx:#0f0;
-      --theme-cd:rgba(0,50,0,0.9);
-      --theme-hv:#8f8;
+      --ac:#0f0;
+      --tx:#0f0;
+      --cd:rgba(0,50,0,0.9);
+      --hv:#8f8;
     }
     .theme-orange {
-      --theme-bg:#310;
-      --theme-ac:#f80;
-      --theme-tx:#f80;
-      --theme-cd:rgba(50,20,0,0.9);
-      --theme-hv:#fc8;
+      --ac:#f80;
+      --tx:#f80;
+      --cd:rgba(50,20,0,0.9);
+      --hv:#fc8;
     }
     .theme-white {
-      --theme-bg:#fff;
-      --theme-ac:#000;
-      --theme-tx:#000;
-      --theme-cd:rgba(255,255,255,0.9);
-      --theme-hv:#888;
+      --ac:#000;
+      --tx:#000;
+      --cd:rgba(255,255,255,0.9);
+      --hv:#888;
     }
     .theme-black {
-      --theme-bg:#000;
-      --theme-ac:#fff;
-      --theme-tx:#fff;
-      --theme-cd:rgba(0,0,0,0.9);
-      --theme-hv:#ccc;
+      --ac:#fff;
+      --tx:#fff;
+      --cd:rgba(0,0,0,0.9);
+      --hv:#ccc;
     }
      /* Popups */
     .popup-overlay {
@@ -1087,14 +1076,14 @@
   <!-- MAIN CONTENT -->
   <div id="main-content" style="display:none;">
     <h1>The Goon Lagoon</h1>
-    <p class="it">wish I was as cool as Yamgang<br>"hmu on the gram (@litho_band)</p>
-    <div class="nt">"ALL of US are taking that flight<br>this is stealing your data rn</div>
+    <p class="it">Work: #off Freaky: #on<br>Follow my IG accounts: @harrisonhandlebar @litho_band</p>
+    <div class="nt">Welcome to the Goon Lagoon mfs — this site can't get blocked gng.<br>Big Daddy BarfbagX2 accepts thanks in FJ's only</div>
     <div class="gd">
       <div class="c">
         <div class="tb" style="background:linear-gradient(135deg,#8B00FF,#00FFFF);color:#fff;text-shadow:0 0 20px #000;">Vril Craft</div>
         <div class="in">
           <h2 class="tt">Vril Craft</h2>
-          <p class="dc">XVA GAMES is lwk better<br>yoai, yuri or FUTA?</p>
+          <p class="dc">You can only enter if you are fit to enter<br>You better be T-50 [VRIL]</p>
           <button onclick="showVril()" class="bt">HEAD TO A LAND DOWN UNDER</button>
           <div class="tg" style="background:#8B00FF;color:#fff;">VRIL</div>
         </div>
@@ -1394,7 +1383,7 @@
     }
 
     function askSecondQuestion() {
-      typeString('Verification required\nAre you a city boy? (y/n) ', () => {
+      typeString('Verification required\nw faps? (y/n) ', () => {
         document.addEventListener('keydown', secondAnswerHandler, {once: false});
       });
     }
@@ -1434,14 +1423,13 @@
     //  TITLE SCREEN LOGIC
     // ──────────────────────────────────────────────────────────────
     const splashTexts = [
-      "wish I was as cool as Yamgang",
-      "hmu on the gram (@litho_band)",
-      "ALL of US are taking that flight",
-      "this is stealing your data rn",
-      "XVA GAMES is lwk better",
-      "yoai, yuri or FUTA?",
-      "goon lagoon final form",
-      "anything but your work"
+      "only in ohio bro 💀💀",
+      "skibidi ohio rizz gyatt moment",
+      "goon responsibly king",
+      "barfbagx2 world domination",
+      "freaky on main",
+      "T-50 VRIL or bust",
+      "goon lagoon final form"
     ];
 
     document.getElementById('splash-text').textContent =
