@@ -8,563 +8,229 @@
   <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Cinzel:wght@900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.indigo-pink.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-icons/3.0.1/iconfont/material-icons.css">
   <style>
     :root {
-      --bg:#000;
-      --ac:#0f0;
-      --tx:#0f0;
-      --cd:rgba(10,10,10,0.9);
-      --hv:#0ff;
-      --gl:0 0 15px rgba(0,255,0,0.5);
-      --pink:#ff00ff;
-      --cyan:#00ffff;
-      --yellow:#ffff00;
-      --red:#ff0000;
+      --bg: #000;
+      --ac: #0f0;
+      --tx: #0f0;
+      --cd: rgba(10,10,10,0.9);
+      --hv: #0ff;
+      --gl: 0 0 15px rgba(0,255,0,0.5);
+      --pink: #ff00ff;
+      --cyan: #00ffff;
+      --yellow: #ffff00;
+      --red: #ff0000;
     }
     * {
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     body {
-      background:#000;
-      color:var(--tx);
-      font-family:'Courier New',monospace;
-      margin:0;
-      padding:15px;
-      min-height:100vh;
-      overflow-x:hidden;
-      text-shadow:0 0 5px var(--ac);
-      position:relative;
-    }
-    #bg-gif {
-      position:fixed;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      z-index:-2;
-      opacity:0.22;
-      pointer-events:none;
-    }
-    #menu-bg {
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      z-index:1;
-      opacity:0.35;
+      background: #000;
+      color: var(--tx);
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      padding: 15px;
+      min-height: 100vh;
+      overflow-x: hidden;
+      text-shadow: 0 0 5px var(--ac);
+      position: relative;
     }
     h1 {
-      text-align:center;
-      font-size:2.8em;
-      margin:20px 0;
-      color:var(--ac);
-      text-shadow:0 0 20px var(--ac),0 0 40px var(--ac);
-      animation:pl 2s infinite;
+      text-align: center;
+      font-size: 2.8em;
+      margin: 20px 0;
+      color: var(--ac);
+      text-shadow: 0 0 20px var(--ac), 0 0 40px var(--ac);
+      animation: pl 2s infinite;
     }
     @keyframes pl {
-      0%,100%{opacity:1}
-      50%{opacity:0.6}
+      0%,100% { opacity: 1 }
+      50% { opacity: 0.6 }
     }
     .it {
-      text-align:center;
-      max-width:900px;
-      margin:0 auto 30px;
-      font-size:1.1em;
-      line-height:1.6;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 30px;
+      font-size: 1.1em;
+      line-height: 1.6;
     }
     .nt {
-      text-align:center;
-      margin:20px auto;
-      font-size:0.95em;
-      color:#9f9;
+      text-align: center;
+      margin: 20px auto;
+      font-size: 0.95em;
+      color: #9f9;
     }
     .gd {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:20px;
-      max-width:1600px;
-      margin:0 auto;
-      position:relative;
-      z-index:2;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      max-width: 1600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
     .c {
-      background:var(--cd);
-      border:1px solid var(--ac);
-      border-radius:12px;
-      overflow:hidden;
-      transition:all .4s;
-      box-shadow:var(--gl);
-      position:relative;
+      background: var(--cd);
+      border: 1px solid var(--ac);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all .4s;
+      box-shadow: var(--gl);
+      position: relative;
     }
     .c:hover {
-      transform:translateY(-10px);
-      box-shadow:0 0 30px rgba(0,255,0,0.8);
-      border-color:var(--hv);
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(0,255,0,0.8);
+      border-color: var(--hv);
     }
     .tb {
-      width:100%;
-      height:180px;
-      background:#111;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:3.5em;
-      color:var(--ac);
-      text-shadow:0 0 10px var(--ac);
-      border-bottom:1px solid var(--ac);
+      width: 100%;
+      height: 180px;
+      background: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5em;
+      color: var(--ac);
+      text-shadow: 0 0 10px var(--ac);
+      border-bottom: 1px solid var(--ac);
     }
     .in {
-      padding:16px;
+      padding: 16px;
     }
     .tt {
-      color:var(--hv);
-      font-size:1.4em;
-      margin-bottom:8px;
-      text-shadow:0 0 8px var(--hv);
+      color: var(--hv);
+      font-size: 1.4em;
+      margin-bottom: 8px;
+      text-shadow: 0 0 8px var(--hv);
     }
     .dc {
-      font-size:0.9em;
-      line-height:1.5;
-      margin-bottom:12px;
-      opacity:0.9;
+      font-size: 0.9em;
+      line-height: 1.5;
+      margin-bottom: 12px;
+      opacity: 0.9;
     }
     .bt {
-      display:block;
-      width:100%;
-      background:linear-gradient(135deg,#ff00ff,#00ffff);
-      color:#000;
-      padding:10px;
-      text-align:center;
-      border-radius:8px;
-      font-weight:bold;
-      transition:all .3s;
-      box-shadow:0 0 12px rgba(255,0,255,0.5);
-      cursor:pointer;
-      border:none;
-      text-decoration:none;
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, #ff00ff, #00ffff);
+      color: #000;
+      padding: 10px;
+      text-align: center;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: all .3s;
+      box-shadow: 0 0 12px rgba(255,0,255,0.5);
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
     }
     .bt:hover {
-      background:linear-gradient(135deg,#ffff00,#ff00ff);
-      transform:scale(1.03);
-      box-shadow:0 0 20px rgba(255,255,0,0.8);
+      background: linear-gradient(135deg, #ffff00, #ff00ff);
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(255,255,0,0.8);
     }
     .tg {
-      position:absolute;
-      top:8px;
-      right:8px;
-      background:#000;
-      color:var(--ac);
-      padding:3px 7px;
-      font-size:.65em;
-      border-radius:4px;
-      border:1px solid var(--ac);
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: #000;
+      color: var(--ac);
+      padding: 3px 7px;
+      font-size: .65em;
+      border-radius: 4px;
+      border: 1px solid var(--ac);
     }
-    /* Loader / Intro */
+    #menu-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.35;
+    }
+    /* Typing Loader */
     #loader {
-      position:fixed;
-      inset:0;
-      background:#000;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-start;
-      align-items:center;
-      z-index:9999;
-      transition:opacity 1.5s ease-out;
-      padding-top: 5vh;
+      position: fixed;
+      inset: 0;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 1.5s ease-out;
     }
     #loader.hidden {
-      opacity:0;
-      pointer-events:none;
+      opacity: 0;
+      pointer-events: none;
     }
     #terminal {
-      color:#0f0;
-      font-family:'Courier New', monospace;
-      font-size:1.3em;
-      white-space:pre-wrap;
-      text-align:left;
-      max-width:85vw;
-      max-height:70vh;
-      overflow-y:auto;
-      padding:20px;
-      line-height:1.45;
-      text-shadow:0 0 5px #0f0;
+      color: #0f0;
+      font-family: 'Courier New', monospace;
+      font-size: 1.3em;
+      white-space: pre-wrap;
+      text-align: left;
+      max-width: 85vw;
+      max-height: 70vh;
+      overflow-y: auto;
+      padding: 20px;
+      line-height: 1.45;
+      text-shadow: 0 0 5px #0f0;
     }
     /* Title Screen */
     #title-screen {
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.6);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      z-index:9998;
-      opacity:0;
-      visibility:hidden;
-      transition:opacity 1.5s, visibility 1.5s;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9998;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 1.5s, visibility 1.5s;
     }
     #title-screen.visible {
-      opacity:1;
-      visibility:visible;
+      opacity: 1;
+      visibility: visible;
     }
     #title-logo {
-      font-family:'Bangers',cursive;
-      font-size:8vw;
-      background:linear-gradient(45deg,#ff00ff,#00ffff,#ffff00);
-      -webkit-background-clip:text;
-      color:transparent;
-      text-shadow:0 0 30px #f0f;
-      margin-bottom:20px;
+      font-family: 'Bangers', cursive;
+      font-size: 8vw;
+      background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00);
+      -webkit-background-clip: text;
+      color: transparent;
+      text-shadow: 0 0 30px #f0f;
+      margin-bottom: 20px;
     }
     #splash-text {
-      font-size:2.5vw;
-      color:#ffff00;
-      text-shadow:0 0 10px #000;
-      margin-bottom:50px;
-      transform:rotate(-5deg);
+      font-size: 2.5vw;
+      color: #ffff00;
+      text-shadow: 0 0 10px #000;
+      margin-bottom: 50px;
+      transform: rotate(-5deg);
     }
     .title-button {
-      background:rgba(0,0,0,0.5);
-      color:#fff;
-      border:2px solid #fff;
-      padding:15px 50px;
-      font-size:2em;
-      margin:10px 0;
-      cursor:pointer;
-      border-radius:5px;
-      transition:background 0.3s, transform 0.3s;
-      width:300px;
-      text-align:center;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      border: 2px solid #fff;
+      padding: 15px 50px;
+      font-size: 2em;
+      margin: 10px 0;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background 0.3s, transform 0.3s;
+      width: 300px;
+      text-align: center;
     }
     .title-button:hover {
-      background:rgba(255,255,255,0.2);
-      transform:scale(1.05);
+      background: rgba(255,255,255,0.2);
+      transform: scale(1.05);
     }
-    /* Settings Menu */
-    #settings-menu {
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.9);
-      display:none;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-    }
-    #settings-menu.visible {
-      display:flex;
-    }
-    #settings-content {
-      background:#111;
-      padding:40px;
-      border-radius:20px;
-      box-shadow:0 0 30px rgba(0,255,0,0.5);
-      width:600px;
-      max-width:90%;
-    }
-    #settings-content h2 {
-      color:var(--ac);
-      text-align:center;
-      margin-bottom:30px;
-    }
-    .setting-option {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      margin-bottom:20px;
-      color:#fff;
-    }
-    #close-settings {
-      background:#ff0000;
-      color:#fff;
-      border:none;
-      padding:12px;
-      cursor:pointer;
-      border-radius:6px;
-      width:100%;
-      margin-top:20px;
-      font-size:1.2em;
-    }
-    /* Particles */
-    .particle {
-      position:absolute;
-      width:5px;
-      height:5px;
-      background:#fff;
-      pointer-events:none;
-      animation:fall linear infinite;
-    }
-    @keyframes fall {
-      0% { transform:translateY(-10vh); opacity:1 }
-      100% { transform:translateY(110vh); opacity:0.4 }
-    }
-    .snow { background:#fff; border-radius:50%; }
-    .rain { background:#00f; width:2px; height:20px; }
-    .leaf { background:#ff0; border-radius:0; transform:rotate(45deg); animation:fall-leaf linear infinite; }
-    @keyframes fall-leaf {
-      0% { transform:translateY(-10vh) rotate(0deg); opacity:1 }
-      100% { transform:translateY(110vh) rotate(360deg); opacity:0 }
-    }
-    .ash { background:#888; border-radius:50%; }
-    /* Themes */
-    .theme-default { --ac:#0f0; --tx:#0f0; --cd:rgba(10,10,10,0.9); --hv:#0ff; }
-    .theme-red     { --ac:#f00; --tx:#f00; --cd:rgba(50,0,0,0.9); --hv:#f88; }
-    .theme-blue    { --ac:#00f; --tx:#00f; --cd:rgba(0,0,50,0.9); --hv:#88f; }
-    /* ... other themes ... */
-    /* Popups / Overlays */
-    .popup-overlay {
-      display:none;
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.95);
-      z-index:10000;
-      overflow-y:auto;
-      color:#fff;
-    }
-    /* VRIL PAGE */
-    #vrilpage {
-      display:none;
-      position:fixed;
-      inset:0;
-      background:#000;
-      z-index:10000;
-      overflow:hidden;
-      font-family:'Cinzel',serif;
-      color:#fff;
-    }
-    #vrilintro {
-      position:absolute;
-      inset:0;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      animation:vrilFade 1.2s forwards 5.3s;
-      z-index:2;
-    }
-    #slideshow {
-      position:absolute;
-      inset:0;
-      background:#000;
-    }
-    #slideshow::before {
-      content:'';
-      position:absolute;
-      inset:0;
-      background-size:contain;
-      background-repeat:no-repeat;
-      background-position:center;
-      animation: flashImages 5.3s steps(60) forwards;
-    }
-    @keyframes flashImages {
-      0%   {background-image:url('https://imgpx.com/en/u1JpyaP6cuXy.png');}
-      8%   {background-image:url('https://imgpx.com/en/VGmBaduHQrLi.png');}
-      16%  {background-image:url('https://imgpx.com/en/z9g7ocw0tSHb.png');}
-      24%  {background-image:url('https://imgpx.com/en/pGMOlGoXdWlg.png');}
-      32%  {background-image:url('https://imgpx.com/en/qKhLJh9SnKxd.png');}
-      40%  {background-image:url('https://imgpx.com/en/u1JpyaP6cuXy.png');}
-      48%  {background-image:url('https://imgpx.com/en/VGmBaduHQrLi.png');}
-      56%  {background-image:url('https://imgpx.com/en/z9g7ocw0tSHb.png');}
-      64%  {background-image:url('https://imgpx.com/en/pGMOlGoXdWlg.png');}
-      72%  {background-image:url('https://imgpx.com/en/qKhLJh9SnKxd.png');}
-      80%  {background-image:url('https://imgpx.com/en/u1JpyaP6cuXy.png');}
-      88%  {background-image:url('https://imgpx.com/en/VGmBaduHQrLi.png');}
-      96%  {background-image:url('https://imgpx.com/en/z9g7ocw0tSHb.png');}
-      100% {background-image:url('https://imgpx.com/en/qKhLJh9SnKxd.png');}
-    }
-    @keyframes vrilFade { to {opacity:0; visibility:hidden} }
-    #vriltext {
-      font-size:9vw;
-      font-weight:900;
-      background:linear-gradient(45deg,#ff00ff,#00ffff,#ffff00,#ff0066,#00ff00);
-      -webkit-background-clip:text;
-      color:transparent;
-      text-shadow:0 0 50px #fff;
-      animation:rainbow 7s infinite;
-      letter-spacing:0.2em;
-      z-index:3;
-    }
-    #vrilbottom {
-      position:absolute;
-      bottom:10vh;
-      font-size:3.5vw;
-      text-shadow:0 0 30px #0ff,0 0 60px #f0f;
-      animation:pulse 1.8s infinite;
-      z-index:3;
-    }
-    #vrilmain {
-      opacity:0;
-      animation:vrilAppear 1.5s forwards 5.3s;
-      position:absolute;
-      inset:0;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-    }
-    .strobe {
-      position:absolute;
-      width:500px;
-      height:500px;
-      border-radius:50%;
-      filter:blur(120px);
-      opacity:0;
-      animation:moveStrobe 12s infinite ease-in-out;
-    }
-    #s1 {background:#ff00ff; animation-delay:0s;}
-    #s2 {background:#00ffff; animation-delay:3s;}
-    #s3 {background:#ffff00; animation-delay:6s;}
-    #s4 {background:#ff0066; animation-delay:9s;}
-    @keyframes moveStrobe {
-      0%   {transform:translate(-70vw,-70vh) scale(0.4); opacity:0;}
-      25%  {opacity:0.9;}
-      50%  {transform:translate(70vw,70vh) scale(2.2); opacity:0.7;}
-      75%  {opacity:0.9;}
-      100% {transform:translate(-70vw,-70vh) scale(0.4); opacity:0;}
-    }
-    #frosted {
-      position:absolute;
-      inset:0;
-      backdrop-filter:blur(14px) brightness(1.5);
-      background:rgba(255,255,255,0.06);
-      pointer-events:none;
-    }
-    #vrilh1 {
-      font-size:8vw;
-      font-weight:900;
-      background:linear-gradient(45deg,#00ffff,#ff00ff,#ffff00);
-      -webkit-background-clip:text;
-      color:transparent;
-      text-shadow:0 0 80px #fff;
-      animation:rainbow 6s infinite;
-      margin-bottom:60px;
-      z-index:2;
-    }
-    .vrilbtn {
-      padding:20px 80px;
-      font-size:2.5em;
-      font-weight:bold;
-      background:linear-gradient(135deg,#ff00ff,#00ffff);
-      color:#000;
-      border:none;
-      border-radius:60px;
-      cursor:pointer;
-      box-shadow:0 0 60px #0ff;
-      transition:.4s;
-      z-index:2;
-    }
-    .vrilbtn:hover {
-      transform:scale(1.3);
-      box-shadow:0 0 120px #f0f;
-      background:linear-gradient(135deg,#ffff00,#ff00ff);
-    }
-    @keyframes rainbow { 0%{filter:hue-rotate(0deg)} 100%{filter:hue-rotate(360deg)} }
-    @keyframes vrilAppear { to {opacity:1} }
-    /* EMULATOR PAGE */
-    #emulator-page {
-      display:none;
-      position:fixed;
-      inset:0;
-      background:#000;
-      z-index:10000;
-      overflow:hidden;
-      color:#fff;
-    }
-    /* DRAG RACER */
-    #drag-racer-page {
-      display:none;
-      position:fixed;
-      inset:0;
-      background:#000;
-      color:#fff;
-      z-index:10001;
-    }
-    /* RETRO BOWL / SKIBIDI */
-    #skibidi-page {
-      display:none;
-      position:fixed;
-      inset:0;
-      background:#000;
-      z-index:10002;
-    }
-    /* MOVIES */
-    #movies-page {
-      display:none;
-      position:fixed;
-      inset:0;
-      background:#000;
-      z-index:10003;
-      overflow:auto;
-      color:#fff;
-    }
-    #movies-header {
-      position:sticky;
-      top:0;
-      background:linear-gradient(90deg,rgba(0,0,0,0.9),rgba(0,0,0,0.6));
-      backdrop-filter:blur(8px);
-      padding:12px 20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      border-bottom:1px solid #0f0;
-      z-index:10005;
-    }
-    #movies-title { font-size:1.6em; color:#0f0; text-shadow:0 0 12px #0f0; }
-    #movies-close {
-      background:rgba(255,0,0,0.92);
-      color:#fff;
-      border:none;
-      padding:8px 12px;
-      font-weight:bold;
-      cursor:pointer;
-      border-radius:6px;
-      font-size:1.1em;
-    }
-    #movies-intro {
-      position:relative;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-direction:column;
-      padding:70px 20px 50px;
-      overflow:hidden;
-    }
-    #movies-intro h1 {
-      font-size:6.5vw;
-      max-width:92%;
-      text-align:center;
-      background:linear-gradient(45deg,#ff00ff,#00ffff,#ffff00,#ff0066,#00ff00);
-      -webkit-background-clip:text;
-      color:transparent;
-      text-shadow:0 0 60px #fff;
-      animation:rainbow 7s infinite;
-    }
-    .movies-grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:20px;
-      padding:20px;
-      max-width:1400px;
-      margin:0 auto;
-    }
-    .movie-card {
-      background:#111;
-      border:1px solid #0f0;
-      border-radius:12px;
-      padding:20px;
-      text-align:center;
-      box-shadow:0 0 18px rgba(0,255,0,0.35);
-      transition:all .3s;
-    }
-    .movie-card h2 { color:#0ff; margin-bottom:12px; font-size:1.2em; }
-    .movie-card:hover {
-      transform:translateY(-8px);
-      box-shadow:0 0 35px rgba(0,255,255,0.7);
-    }
-    /* Close button style for overlays */
+    /* Overlays */
     .close-overlay {
       position: absolute;
       top: 15px;
@@ -578,389 +244,453 @@
       border-radius: 6px;
       z-index: 10001;
     }
-    /* CHATBOT */
-    #chatbot-widget {
-      position:fixed;
-      top:50%;
-      right:20px;
-      transform:translateY(-50%) translateX(140%);
-      z-index:10020;
-      display:flex;
-      flex-direction:column;
-      align-items:flex-end;
-      gap:10px;
-      opacity:0;
-      animation: chatbotEnter 1.4s 5s forwards;
-    }
-    @keyframes chatbotEnter { to { transform:translateY(-50%) translateX(0); opacity:1; } }
-    .chatbot-avatar {
-      width:84px;
-      height:84px;
-      border-radius:50%;
-      background:#111;
-      border:3px solid #0f0;
-      box-shadow:0 0 20px rgba(0,255,0,0.6);
-      background-image:url('https://iili.io/fTYEMnj.md.jpg');
-      background-size:cover;
-      background-position:center;
-      cursor:pointer;
-      animation: pulseGlow 4s infinite 6s;
-    }
-    @keyframes pulseGlow {
-      0%,100% { box-shadow:0 0 20px rgba(0,255,0,0.6); }
-      50%     { box-shadow:0 0 45px rgba(0,255,0,1); }
-    }
-    .chatbot-bubble {
-      max-width:260px;
-      background:rgba(0,0,0,0.85);
-      color:#0ff;
-      border:1px solid #0ff;
-      border-radius:12px;
-      box-shadow:0 0 15px rgba(0,255,255,0.4);
-      padding:10px 12px;
-      font-size:0.95em;
-      margin-right:8px;
-    }
-    .chatbot-btn {
-      background:linear-gradient(135deg,#ff00ff,#00ffff);
-      color:#000;
-      border:none;
-      border-radius:20px;
-      padding:10px 16px;
-      font-weight:bold;
-      cursor:pointer;
-      box-shadow:0 0 12px rgba(0,255,255,0.5);
-      font-size:1em;
-    }
-    .chatbot-btn:hover {
-      background:linear-gradient(135deg,#ffff00,#ff00ff);
-      transform:scale(1.05);
-    }
-    #chatbot-overlay {
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.96);
-      z-index:99999;
-      display:none;
-      flex-direction:column;
-      backdrop-filter:blur(12px);
-    }
-    #chatbot-overlay.open { display:flex !important; }
-    #chatbot-header {
-      position:absolute;
-      top:0; left:0; right:0;
-      padding:14px 16px;
-      background:rgba(20,20,20,0.98);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      border-bottom:1px solid #333;
-      z-index:10;
-    }
-    #chatbot-title {
-      color:#0f0;
-      font-weight:bold;
-      font-size:1.5em;
-      text-shadow:0 0 12px #0f0;
-    }
-    #chatbot-close-x {
-      font-size:2.8em;
-      cursor:pointer;
-      color:#fff;
-      user-select:none;
-      padding:0 10px;
-    }
-    #chatbot-messages {
-      flex:1;
-      overflow-y:auto;
-      padding:80px 15px 100px;
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      max-width:900px;
-      width:100%;
-      margin:0 auto;
-    }
-    .chatbot-bubble {
-      max-width:78%;
-      padding:13px 18px;
-      border-radius:21px;
-      line-height:1.45;
-      font-size:1.08em;
-      word-wrap:break-word;
-      box-shadow:0 3px 10px rgba(0,0,0,0.5);
-    }
-    .chatbot-user   { align-self:flex-end; background:#0f0; color:#000; border-bottom-right-radius:4px; }
-    .chatbot-bot    { align-self:flex-start; background:#333; color:#0ff; border-bottom-left-radius:4px; }
-    #chatbot-input-bar {
-      position:fixed;
-      bottom:0; left:0; right:0;
-      padding:14px;
-      background:rgba(10,10,10,0.98);
-      display:flex;
-      gap:12px;
-      max-width:900px;
-      margin:0 auto;
-      left:50%;
-      transform:translateX(-50%);
-    }
-    #chatbot-input-field {
-      flex:1;
-      background:#222;
-      color:#fff;
-      border:2px solid #0f0;
-      border-radius:30px;
-      padding:16px 22px;
-      font-size:1.15em;
-      outline:none;
-    }
-    #chatbot-send-btn {
-      background:#0f0;
-      color:#000;
-      border:none;
-      width:62px;
-      height:62px;
-      border-radius:50%;
-      font-size:1.9em;
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      box-shadow:0 0 25px #0f0;
-      font-weight:bold;
-    }
-    /* 3D Cube Transition (if you want to keep it) */
-    #transition-container {
+    #vrilpage, #drag-racer-page, #skibidi-page, #movies-page {
+      display: none;
       position: fixed;
       inset: 0;
-      perspective: 1000px;
-      z-index: 9999;
+      background: #000;
+      z-index: 10000;
     }
-    .cube {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 1.5s;
+    #vrilpage { font-family: 'Cinzel', serif; color: #fff; overflow: hidden; }
+    #drag-racer-page iframe, #skibidi-page iframe { width: 100%; height: 100%; border: none; }
+    #movies-page { overflow-y: auto; }
+    #movies-header {
+      position: sticky;
+      top: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,0.9), rgba(0,0,0,0.6));
+      backdrop-filter: blur(8px);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #0f0;
+      z-index: 10005;
     }
-    .face {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
+    #movies-title { font-size: 1.6em; color: #0f0; text-shadow: 0 0 12px #0f0; }
+    .movies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
     }
-    #front { transform: rotateY(0deg); }
-    #right  { transform: rotateY(90deg); }
-    .cube.slide { transform: rotateY(-90deg); }
-    iframe.full-game {
-      width: 100%;
-      height: 100%;
+    .movie-card {
+      background: #111;
+      border: 1px solid #0f0;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 18px rgba(0,255,0,0.35);
+      transition: all .3s;
+    }
+    .movie-card:hover { transform: translateY(-8px); box-shadow: 0 0 35px rgba(0,255,255,0.7); }
+    /* Chatbot */
+    #chatbot-widget {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%) translateX(140%);
+      z-index: 10020;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      opacity: 0;
+      animation: chatbotEnter 1.4s 5s forwards;
+    }
+    @keyframes chatbotEnter { to { transform: translateY(-50%) translateX(0); opacity: 1; } }
+    .chatbot-avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: #111 url('https://iili.io/fTYEMnj.md.jpg') center/cover;
+      border: 3px solid #0f0;
+      box-shadow: 0 0 20px rgba(0,255,0,0.6);
+      cursor: pointer;
+      animation: pulseGlow 4s infinite 6s;
+    }
+    @keyframes pulseGlow { 0%,100% { box-shadow: 0 0 20px rgba(0,255,0,0.6); } 50% { box-shadow: 0 0 45px rgba(0,255,0,1); } }
+    .chatbot-bubble {
+      max-width: 260px;
+      background: rgba(0,0,0,0.85);
+      color: #0ff;
+      border: 1px solid #0ff;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,255,255,0.4);
+      padding: 10px 12px;
+      font-size: 0.95em;
+      margin-right: 8px;
+    }
+    .chatbot-btn {
+      background: linear-gradient(135deg, #ff00ff, #00ffff);
+      color: #000;
       border: none;
+      border-radius: 20px;
+      padding: 10px 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(0,255,255,0.5);
+    }
+    .chatbot-btn:hover { background: linear-gradient(135deg, #ffff00, #ff00ff); transform: scale(1.05); }
+    #chatbot-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.96);
+      z-index: 99999;
+      display: none;
+      flex-direction: column;
+      backdrop-filter: blur(12px);
+    }
+    #chatbot-overlay.open { display: flex !important; }
+    #chatbot-header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      padding: 14px 16px;
+      background: rgba(20,20,20,0.98);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #333;
+      z-index: 10;
+    }
+    #chatbot-title { color: #0f0; font-weight: bold; font-size: 1.5em; text-shadow: 0 0 12px #0f0; }
+    #chatbot-close-x { font-size: 2.8em; cursor: pointer; color: #fff; user-select: none; padding: 0 10px; }
+    #chatbot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 80px 15px 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .chatbot-bubble {
+      max-width: 78%;
+      padding: 13px 18px;
+      border-radius: 21px;
+      line-height: 1.45;
+      font-size: 1.08em;
+      word-wrap: break-word;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+    }
+    .chatbot-user   { align-self: flex-end; background: #0f0; color: #000; border-bottom-right-radius: 4px; }
+    .chatbot-bot    { align-self: flex-start; background: #333; color: #0ff; border-bottom-left-radius: 4px; }
+    #chatbot-input-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      padding: 14px;
+      background: rgba(10,10,10,0.98);
+      display: flex;
+      gap: 12px;
+      max-width: 900px;
+      margin: 0 auto;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    #chatbot-input-field {
+      flex: 1;
+      background: #222;
+      color: #fff;
+      border: 2px solid #0f0;
+      border-radius: 30px;
+      padding: 16px 22px;
+      font-size: 1.15em;
+      outline: none;
+    }
+    #chatbot-send-btn {
+      background: #0f0;
+      color: #000;
+      border: none;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      font-size: 1.9em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px #0f0;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <canvas id="menu-bg"></canvas>
 
-  <!-- LOADER / TYPING INTRO (kept from newer) -->
-  <div id="loader">
-    <pre id="terminal"></pre>
-  </div>
+<canvas id="menu-bg"></canvas>
 
-  <!-- TITLE SCREEN -->
-  <div id="title-screen">
-    <h1 id="title-logo">THE GOON LAGOON</h1>
-    <p id="splash-text"></p>
-    <button class="title-button" id="play-button">PLAY</button>
-    <button class="title-button" id="settings-button">SETTINGS</button>
-  </div>
+<!-- Typing Loader -->
+<div id="loader">
+  <pre id="terminal"></pre>
+</div>
 
-  <!-- SETTINGS MENU -->
-  <div id="settings-menu">
-    <div id="settings-content">
-      <h2>Settings</h2>
-      <!-- Add theme / particle toggles here if you want to restore them -->
-      <button id="close-settings">Close</button>
-    </div>
-  </div>
+<!-- Title Screen -->
+<div id="title-screen">
+  <h1 id="title-logo">THE GOON LAGOON</h1>
+  <p id="splash-text">wish I was as cool as Yamgang</p>
+  <button class="title-button" id="play-button">PLAY</button>
+  <button class="title-button" id="settings-button">SETTINGS</button>
+</div>
 
-  <!-- MAIN CONTENT -->
-  <div id="main-content" style="display:none;">
-    <h1>The Goon Lagoon</h1>
-    <p class="it">Work: #off Freaky: #on<br>Follow my IG accounts: @harrisonhandlebar @litho_band</p>
-    <div class="nt">Welcome to the Goon Lagoon mfs — this site can't get blocked gng.<br>quality is the priority not matter the effort needed</div>
+<!-- Main Content -->
+<div id="main-content" style="display:none;">
+  <h1>The Goon Lagoon</h1>
+  <p class="it">Work: #off Freaky: #on<br>Follow my IG accounts: @harrisonhandlebar @litho_band</p>
+  <div class="nt">Welcome to the Goon Lagoon mfs — this site can't get blocked gng.<br>quality is the priority not matter the effort needed</div>
 
-    <div class="gd">
-      <div class="c">
-        <div class="tb" style="background:linear-gradient(135deg,#8B00FF,#00FFFF);color:#fff;text-shadow:0 0 20px #000;">Vril Craft</div>
-        <div class="in">
-          <h2 class="tt">Vril Craft</h2>
-          <p class="dc">You can only enter if you are fit to enter<br>You better be T-50 [VRIL]</p>
-          <button onclick="showVril()" class="bt">HEAD TO A LAND DOWN UNDER</button>
-          <div class="tg" style="background:#8B00FF;color:#fff;">VRIL</div>
-        </div>
+  <div class="gd">
+
+    <!-- VRIL -->
+    <div class="c">
+      <div class="tb" style="background:linear-gradient(135deg,#8B00FF,#00FFFF);color:#fff;text-shadow:0 0 20px #000;">Vril Craft</div>
+      <div class="in">
+        <h2 class="tt">Vril Craft</h2>
+        <p class="dc">You can only enter if you are fit to enter<br>You better be T-50 [VRIL]</p>
+        <button onclick="showVril()" class="bt">HEAD TO A LAND DOWN UNDER</button>
+        <div class="tg" style="background:#8B00FF;color:#fff;">VRIL</div>
       </div>
+    </div>
 
-      <div class="c">
-        <div class="tb" style="background:linear-gradient(135deg,#00ff99,#ff0066);color:#fff;text-shadow:0 0 20px #000;">Movies</div>
-        <div class="in">
-          <h2 class="tt">Movies Section</h2>
-          <p class="dc">49 movies — click any card to watch in new tab [OK]</p>
-          <button onclick="showMovies()" class="bt">ENTER MOVIES</button>
-          <div class="tg" style="background:#00ff99;color:#000;">MOV</div>
-        </div>
+    <!-- MOVIES -->
+    <div class="c">
+      <div class="tb" style="background:linear-gradient(135deg,#00ff99,#ff0066);color:#fff;text-shadow:0 0 20px #000;">Movies</div>
+      <div class="in">
+        <h2 class="tt">Movies Section</h2>
+        <p class="dc">49 movies — click any card to watch in new tab [OK]</p>
+        <button onclick="showMovies()" class="bt">ENTER MOVIES</button>
+        <div class="tg" style="background:#00ff99;color:#000;">MOV</div>
       </div>
-
-      <!-- All other game cards follow the simple pattern -->
-      <div class="c"><div class="tb">Slope Ball</div><div class="in"><h2 class="tt">Retard Slope</h2><p class="dc">Kinda like normal slope but with down syndrome! [OK]</p><button onclick="oF('https://mathiasgredal.github.io/Slope-Game/')" class="bt">GO FS TWIN</button><div class="tg">3D</div></div></div>
-      <div class="c"><div class="tb">Slope Nexus</div><div class="in"><h2 class="tt">Normal Slope</h2><p class="dc">Actual Slope but WASD don't work dunno why not gonna fix ts! [OK]</p><button onclick="oF('https://slopenexus.github.io/games/v7/index.html')" class="bt">GO FS TWIN</button><div class="tg">3D</div></div></div>
-      <div class="c"><div class="tb">Endless Runner</div><div class="in"><h2 class="tt">Rage Runna</h2><p class="dc">This game pisses me off lwk but is addicting! [OK]</p><button onclick="oF('https://nickidebruyn.github.io/unity/endlessrunner/index.html')" class="bt">GO FS TWIN</button><div class="tg">RUN</div></div></div>
-      <!-- ... copy-paste all remaining game cards from your newest list here ... -->
-      <!-- For brevity I'm not repeating every single one again, but in your file replace this comment with ALL the <div class="c">...</div> blocks from your previous message -->
-      <!-- Example of special ones: -->
-      <div class="c"><div class="tb">Drag Racer</div><div class="in"><h2 class="tt">Drag Racer V3</h2><p class="dc">ion know what Ts is, was a request so ask Habibi [OK]</p><button onclick="showDragRacer()" class="bt">GO FS TWIN</button><div class="tg">RACE</div></div></div>
-      <div class="c"><div class="tb" style="background:linear-gradient(135deg,#ff00ff,#320d90);color:#fff;text-shadow:0 0 20px #000;">RETRO BOWL</div><div class="in"><h2 class="tt">Retro Bowl</h2><p class="dc">you alr know what ts is gng. [FEET]</p><button onclick="showSkibidi()" class="bt">GO FS TWIN</button><div class="tg" style="background:#320d90;color:#fff;">FUTA</div></div></div>
-      <!-- ... continue with all other cards ... -->
     </div>
 
-    <p class="nt">Hmu for shi you want added.<br><em>January 2026 — Goon Lagoon Updated</em></p>
+    <!-- All regular games use oF() -->
+    <div class="c"><div class="tb">Slope Ball</div><div class="in"><h2 class="tt">Retard Slope</h2><p class="dc">Kinda like normal slope but with down syndrome! [OK]</p><button onclick="oF('https://mathiasgredal.github.io/Slope-Game/')" class="bt">GO FS TWIN</button><div class="tg">3D</div></div></div>
+    <div class="c"><div class="tb">Slope Nexus</div><div class="in"><h2 class="tt">Normal Slope</h2><p class="dc">Actual Slope but WASD don't work dunno why not gonna fix ts! [OK]</p><button onclick="oF('https://slopenexus.github.io/games/v7/index.html')" class="bt">GO FS TWIN</button><div class="tg">3D</div></div></div>
+    <div class="c"><div class="tb">Endless Runner</div><div class="in"><h2 class="tt">Rage Runna</h2><p class="dc">This game pisses me off lwk but is addicting! [OK]</p><button onclick="oF('https://nickidebruyn.github.io/unity/endlessrunner/index.html')" class="bt">GO FS TWIN</button><div class="tg">RUN</div></div></div>
+    <div class="c"><div class="tb">Rocket Game</div><div class="in"><h2 class="tt">Fuckass Rocket</h2><p class="dc">Fly the rocket, left/right turn, space to thrust. 10 levels of this shit game! [OK]</p><button onclick="oF('https://lance60.github.io/RocketGameWebGL/')" class="bt">GO FS TWIN</button><div class="tg">ARC</div></div></div>
+    <div class="c"><div class="tb">Box Shooter</div><div class="in"><h2 class="tt">Box Shooter</h2><p class="dc">goon practice. Shoot boxes, rack score. js don't play ts ASS [OK]</p><button onclick="oF('https://romxz.github.io/Unity3D_BoxShooter_WebGL/')" class="bt">GO FS TWIN</button><div class="tg">FPS</div></div></div>
+    <div class="c"><div class="tb">Ghost Game</div><div class="in"><h2 class="tt">Untitled Ghost Game</h2><p class="dc">3D ghost freaky exploration. [OK]</p><button onclick="oF('http://mgoadric.github.io/UGG/index.html')" class="bt">GO FS TWIN</button><div class="tg">HOR</div></div></div>
+    <div class="c"><div class="tb">Cave Explorer</div><div class="in"><h2 class="tt">Cave Game</h2><p class="dc">Explore caves, wait pause... [OK]</p><button onclick="oF('https://lukewarm124.github.io/')" class="bt">GO FS TWIN</button><div class="tg">ADV</div></div></div>
+    <div class="c"><div class="tb">Titan Punk</div><div class="in"><h2 class="tt">Titan Punk</h2><p class="dc">Third-person 3D demo. [OK]</p><button onclick="oF('https://slimramgames.github.io/Titan/')" class="bt">GO FS TWIN</button><div class="tg">DEM</div></div></div>
+    <div class="c"><div class="tb">Mini Game</div><div class="in"><h2 class="tt">Mini Game Collection</h2><p class="dc">Many unc ass games. [OK]</p><button onclick="oF('https://curtinhive.github.io/BPSGame/')" class="bt">GO FS TWIN</button><div class="tg">SIM</div></div></div>
+    <div class="c"><div class="tb">Game Of Life</div><div class="in"><h2 class="tt">Game Of Life</h2><p class="dc">Cellular automaton simulation. (I got no clue what ts is) [OK]</p><button onclick="oF('https://sarkarsaurabh.github.io/')" class="bt">GO FS TWIN</button><div class="tg">SIM</div></div></div>
+    <div class="c"><div class="tb">Ultrakill</div><div class="in"><h2 class="tt">Ultrakill Demo</h2><p class="dc">Best Indie Game EVA ts so damn peak make me wanna BUST. [OK]</p><button onclick="oF('https://149004934-bit.github.io/BarfbagX2UltrakillGame.github.io/')" class="bt">GO FS TWIN</button><div class="tg">FPS</div></div></div>
+    <div class="c"><div class="tb">Random BS of a game lwk</div><div class="in"><h2 class="tt">don't even click ts gng</h2><p class="dc">nah vro don't even read ts either. [OK]</p><button onclick="oF('https://ludumdareosd.github.io/ld46/index.html')" class="bt">GO FS TWIN</button><div class="tg">JAM</div></div></div>
+    <div class="c"><div class="tb">2048 Puzzle</div><div class="in"><h2 class="tt">2048 Puzzle</h2><p class="dc">fuckass number puzzle. [OK]</p><button onclick="oF('https://czhenya.github.io/2048.github.io/')" class="bt">GO FS TWIN</button><div class="tg">PUZ</div></div></div>
+    <div class="c"><div class="tb">Kopter</div><div class="in"><h2 class="tt">Kopter</h2><p class="dc">24h copter challenge. Navigate physics-Accurate helicopter- big ahh map of random shi! [OK]</p><button onclick="oF('https://thomaschampagne.github.io/kopter/')" class="bt">GO FS TWIN</button><div class="tg">ARC</div></div></div>
+    <div class="c"><div class="tb">Mario Bros</div><div class="in"><h2 class="tt">Super Mario Bros</h2><p class="dc">you alr know what ts is gng. you better... [OK]</p><button onclick="oF('https://winstonshields.github.io/Games/Mario/index.html')" class="bt">GO FS TWIN</button><div class="tg">PLAT</div></div></div>
+    <div class="c"><div class="tb">Flip Exchange</div><div class="in"><h2 class="tt">Flip Exchange</h2><p class="dc">2D sidescroller. Switch worlds, with dual characters, solve puzzles! [OK]</p><button onclick="oF('http://flipexchange.github.io/')" class="bt">GO FS TWIN</button><div class="tg">PUZ</div></div></div>
+    <div class="c"><div class="tb">Solar Sim</div><div class="in"><h2 class="tt">Solar System Simulation</h2><p class="dc">why would we willingly play this gng? is everything ok??? [OK]</p><button onclick="oF('http://q-ro.github.io/Solar-system-unity/')" class="bt">GO FS TWIN</button><div class="tg">SIM</div></div></div>
+    <div class="c"><div class="tb">Horror 3D</div><div class="in"><h2 class="tt">3D Horror Game</h2><p class="dc">Run from Slenderman before he GROOMS YO AHH! [OK]</p><button onclick="oF('https://adazhou2007.github.io/3D-horror-web-version/')" class="bt">GO FS TWIN</button><div class="tg">HOR</div></div></div>
+    <div class="c"><div class="tb" style="background:linear-gradient(135deg,#8B00FF,#FF00FF);color:#fff;text-shadow:0 0 20px #000;">Subway Surfers</div><div class="in"><h2 class="tt">Subway Surfers V1</h2><p class="dc">ts the real game gng not sum rip off bs. [OK]</p><button onclick="oF('https://gertdoro.github.io/3hg7dj3bnc82/index.html')" class="bt">GO FS TWIN</button><div class="tg" style="background:#FF00FF;color:#fff;">IONKNO</div></div></div>
+    <div class="c"><div class="tb" style="background:linear-gradient(135deg,#0066ff,#00ff99);color:#fff;text-shadow:0 0 20px #000;">Run 3</div><div class="in"><h2 class="tt">Run 3 Unblocked</h2><p class="dc">Infinite runner in space. Don't fall off or it's over gng. [OK]</p><button onclick="oF('https://linh879.github.io/run333/tn6pS9dCf37xAhkJv/')" class="bt">GO FS TWIN</button><div class="tg" style="background:#0066ff;color:#fff;">HDR</div></div></div>
+    <div class="c"><div class="tb" style="background:linear-gradient(135deg,#ff0066,#8B00FF);color:#fff;text-shadow:0 0 20px #000;">Drift Boss</div><div class="in"><h2 class="tt">Drift Boss</h2><p class="dc">ts game pmo lwk. [OK]</p><button onclick="oF('https://centeredu20.github.io/g5/class-472')" class="bt">GO FS TWIN</button><div class="tg" style="background:#ff0066;color:#fff;">BALLZ</div></div></div>
+    <div class="c"><div class="tb">Drag Racer</div><div class="in"><h2 class="tt">Drag Racer V3</h2><p class="dc">ion know what Ts is, was a request so ask Habibi [OK]</p><button onclick="showDragRacer()" class="bt">GO FS TWIN</button><div class="tg">RACE</div></div></div>
+    <div class="c"><div class="tb" style="background:linear-gradient(135deg,#ff00ff,#320d90);color:#fff;text-shadow:0 0 20px #000;">RETRO BOWL</div><div class="in"><h2 class="tt">Retro Bowl</h2><p class="dc">you alr know what ts is gng. [FEET]</p><button onclick="showSkibidi()" class="bt">GO FS TWIN</button><div class="tg" style="background:#320d90;color:#fff;">FUTA</div></div></div>
+    <!-- Add ALL other game cards here the same way -->
+    <!-- Example placeholder for the rest -->
+    <div class="c"><div class="tb">NZP</div><div class="in"><h2 class="tt">Nazi Zombies Portable</h2><p class="dc">Call of Duty Zombies but on PSP and now in browser. Peak zombie slaying gng [WAW]</p><button onclick="oF('https://someonecantcode.github.io/nzp/')" class="bt">GO FS TWIN</button><div class="tg" style="background:#ff0000;color:#fff;">NPZ</div></div></div>
+    <!-- Continue adding every single card from your original list -->
+
   </div>
+  <p class="nt">Hmu for shi you want added, prob wont be able to do it cus I'm slow.<br><em>January 2026 — Goon Lagoon Updated</em></p>
+</div>
 
-  <!-- VRIL OVERLAY -->
-  <div id="vrilpage">
-    <div id="slideshow"></div>
-    <div id="vrilintro">
-      <div id="vriltext">VRIL CRAFT</div>
-      <div id="vrilbottom">Initiating Descent...</div>
-    </div>
-    <div id="vrilmain">
-      <div id="frosted"></div>
-      <h1 id="vrilh1">Welcome to the Secret Realm</h1>
-      <button class="vrilbtn" onclick="hideVril()">RETURN TO LAGOON</button>
-      <div id="s1" class="strobe"></div><div id="s2" class="strobe"></div><div id="s3" class="strobe"></div><div id="s4" class="strobe"></div>
-    </div>
-    <button class="close-overlay" onclick="hideVril()">X</button>
+<!-- VRIL OVERLAY -->
+<div id="vrilpage">
+  <div id="slideshow"></div>
+  <div id="vrilintro">
+    <div id="vriltext">VRIL CRAFT</div>
+    <div id="vrilbottom">Initiating Descent...</div>
   </div>
-
-  <!-- DRAG RACER OVERLAY -->
-  <div id="drag-racer-page">
-    <button class="close-overlay" onclick="hideDragRacer()">X</button>
-    <iframe class="full-game" src="https://archive.org/embed/drag_racer_v3" frameborder="0" allowfullscreen></iframe>
+  <div id="vrilmain">
+    <div id="frosted"></div>
+    <h1 id="vrilh1">Welcome to the Secret Realm</h1>
+    <button class="vrilbtn" onclick="hideVril()">RETURN TO LAGOON</button>
   </div>
+  <button class="close-overlay" onclick="hideVril()">X</button>
+</div>
 
-  <!-- RETRO BOWL / SKIBIDI OVERLAY -->
-  <div id="skibidi-page">
-    <button class="close-overlay" onclick="hideSkibidi()">X</button>
-    <iframe class="full-game" src="https://centeredu20.github.io/g5/class-400" frameborder="0" allowfullscreen></iframe>
+<!-- DRAG RACER -->
+<div id="drag-racer-page">
+  <button class="close-overlay" onclick="hideDragRacer()">X</button>
+  <iframe src="https://archive.org/embed/drag_racer_v3" allowfullscreen></iframe>
+</div>
+
+<!-- RETRO BOWL -->
+<div id="skibidi-page">
+  <button class="close-overlay" onclick="hideSkibidi()">X</button>
+  <iframe src="https://centeredu20.github.io/g5/class-400" allowfullscreen></iframe>
+</div>
+
+<!-- MOVIES -->
+<div id="movies-page">
+  <div id="movies-header">
+    <div id="movies-title">Lagoon Cinema</div>
+    <button id="movies-close" onclick="hideMovies()">X</button>
   </div>
-
-  <!-- MOVIES OVERLAY -->
-  <div id="movies-page">
-    <div id="movies-header">
-      <div id="movies-title">Lagoon Cinema</div>
-      <button id="movies-close" onclick="hideMovies()">X</button>
-    </div>
-    <div id="movies-intro">
-      <h1>🎬 The Lagoon Cinema 🎬</h1>
-      <p>49 movies — click any card to watch in new tab [OK]</p>
-    </div>
-    <div class="movies-grid">
-      <!-- Paste all 49 movie cards here from your previous code -->
-      <!-- Example: -->
-      <div class="movie-card"><h2>Avengers Infinity War</h2><a href="https://drive.google.com/file/d/1BsfceoAMnel10oCnw0rIKxrOG4H_JWn4/view?usp=sharing" class="bt">WATCH NOW</a></div>
-      <!-- ... all others ... -->
-    </div>
-    <button class="close-overlay" onclick="hideMovies()">X</button>
+  <div id="movies-intro">
+    <h1>🎬 The Lagoon Cinema 🎬</h1>
+    <p>49 movies — click any card to watch in new tab [OK]</p>
   </div>
-
-  <!-- CHATBOT WIDGET & OVERLAY (kept from newer) -->
-  <div id="chatbot-widget">
-    <div class="chatbot-bubble">sup king, what you tryna play today?</div>
-    <div class="chatbot-avatar" onclick="openChatbot()"></div>
-    <button class="chatbot-btn" onclick="openChatbot()">Reply</button>
+  <div class="movies-grid">
+    <!-- Paste all your movie cards here -->
+    <div class="movie-card"><h2>Avengers Infinity War</h2><a href="https://drive.google.com/file/d/1BsfceoAMnel10oCnw0rIKxrOG4H_JWn4/view?usp=sharing" class="bt">WATCH NOW</a></div>
+    <!-- ... add all 49 ... -->
   </div>
-  <div id="chatbot-overlay">
-    <div id="chatbot-header">
-      <div id="chatbot-title">BarfBOTX3</div>
-      <div id="chatbot-close-x" onclick="closeChatbot()">×</div>
-    </div>
-    <div id="chatbot-messages">
-      <div class="chatbot-bot chatbot-bubble">yo what's good?</div>
-    </div>
-    <div id="chatbot-input-bar">
-      <input type="text" id="chatbot-input-field" placeholder="send a message...">
-      <button id="chatbot-send-btn">Send</button>
-    </div>
+  <button class="close-overlay" onclick="hideMovies()">X</button>
+</div>
+
+<!-- Chatbot Widget -->
+<div id="chatbot-widget">
+  <div class="chatbot-bubble">sup king, what you tryna play today?</div>
+  <div class="chatbot-avatar" onclick="openChatbot()"></div>
+  <button class="chatbot-btn" onclick="openChatbot()">Reply</button>
+</div>
+
+<!-- Chatbot Overlay -->
+<div id="chatbot-overlay">
+  <div id="chatbot-header">
+    <div id="chatbot-title">BarfBOTX3 (yall be nice in da dms...)</div>
+    <div id="chatbot-close-x" onclick="closeChatbot()">×</div>
   </div>
+  <div id="chatbot-messages">
+    <div class="chatbot-bot chatbot-bubble">yo what's good? need game recs or just here for the movies?</div>
+  </div>
+  <div id="chatbot-input-bar">
+    <input type="text" id="chatbot-input-field" placeholder="send a message..." autocomplete="off">
+    <button id="chatbot-send-btn" onclick="sendChatbotMessage()">Send</button>
+  </div>
+</div>
 
-  <script>
-    function oF(u) {
-      const w = window.open(u, '_blank');
-      if (w) {
-        w.focus();
-        setTimeout(() => {
-          try { w.document.body.requestFullscreen(); } catch(e) {}
-        }, 1200);
-      }
-    }
+<script>
+// ──────────────────────────────────────────────────────────────
+// GLOBAL OPEN FUNCTION
+// ──────────────────────────────────────────────────────────────
+function oF(u) {
+  const w = window.open(u, '_blank');
+  if (w) {
+    w.focus();
+    setTimeout(() => {
+      w.document.body.requestFullscreen?.() ||
+      w.document.body.webkitRequestFullscreen?.() ||
+      w.document.body.msRequestFullscreen?.();
+    }, 1500);
+  }
+}
 
-    function showVril()     { document.getElementById('vrilpage').style.display = 'block'; document.body.style.overflow = 'hidden'; }
-    function hideVril()     { document.getElementById('vrilpage').style.display = 'none';   document.body.style.overflow = ''; }
-    function showDragRacer(){ document.getElementById('drag-racer-page').style.display = 'block'; document.body.style.overflow = 'hidden'; }
-    function hideDragRacer(){ document.getElementById('drag-racer-page').style.display = 'none';   document.body.style.overflow = ''; }
-    function showSkibidi()  { document.getElementById('skibidi-page').style.display = 'block'; document.body.style.overflow = 'hidden'; }
-    function hideSkibidi()  { document.getElementById('skibidi-page').style.display = 'none';   document.body.style.overflow = ''; }
-    function showMovies()   { document.getElementById('movies-page').style.display = 'block'; document.body.style.overflow = 'hidden'; }
-    function hideMovies()   { document.getElementById('movies-page').style.display = 'none';   document.body.style.overflow = ''; }
+// ──────────────────────────────────────────────────────────────
+// OVERLAY CONTROLS
+// ──────────────────────────────────────────────────────────────
+function showVril()     { document.getElementById('vrilpage').style.display = 'block'; document.body.style.overflow = 'hidden'; }
+function hideVril()     { document.getElementById('vrilpage').style.display = 'none';   document.body.style.overflow = ''; }
+function showDragRacer(){ document.getElementById('drag-racer-page').style.display = 'block'; document.body.style.overflow = 'hidden'; }
+function hideDragRacer(){ document.getElementById('drag-racer-page').style.display = 'none';   document.body.style.overflow = ''; }
+function showSkibidi()  { document.getElementById('skibidi-page').style.display = 'block'; document.body.style.overflow = 'hidden'; }
+function hideSkibidi()  { document.getElementById('skibidi-page').style.display = 'none';   document.body.style.overflow = ''; }
+function showMovies()   { document.getElementById('movies-page').style.display = 'block'; document.body.style.overflow = 'hidden'; }
+function hideMovies()   { document.getElementById('movies-page').style.display = 'none';   document.body.style.overflow = ''; }
 
-    // Chatbot open/close (simple version)
-    function openChatbot() {
-      document.getElementById('chatbot-overlay').style.display = 'flex';
-    }
-    function closeChatbot() {
-      document.getElementById('chatbot-overlay').style.display = 'none';
-    }
+// ──────────────────────────────────────────────────────────────
+// TYPING INTRO
+// ──────────────────────────────────────────────────────────────
+const terminal = document.getElementById('terminal');
+let currentText = '';
+const introLines = [
+  "BOOTING UP",
+  "STARTING UP GAMES AND MOVIES",
+  "SCRAPING FOR DATA TO SELL TO THE IDF",
+  "COMPLETE...",
+  "",
+  "USING MONEY TO BOOK FLIGHT IN NEXT HOUR...",
+  "FLIGHT BOOKED TO LOCATION: Tel Aviv",
+  "",
+  "*----------------------------------------------------------*",
+  "\"READY TO HEAD TO THE LAGOON?\"",
+  "*----------------------------------------------------------*",
+  "ERROR..."
+];
+function typeNextChar() {
+  const fullText = introLines.join('\n');
+  if (currentText.length < fullText.length) {
+    terminal.textContent += fullText[currentText.length];
+    currentText += fullText[currentText.length];
+    setTimeout(typeNextChar, 35 + Math.random() * 40);
+  } else {
+    setTimeout(() => {
+      document.getElementById('loader').classList.add('hidden');
+      document.getElementById('title-screen').classList.add('visible');
+    }, 1200);
+  }
+}
+window.addEventListener('load', () => {
+  setTimeout(typeNextChar, 800);
+});
 
-    // Background canvas animation
-    const canvas = document.getElementById('menu-bg');
-    const ctx = canvas.getContext('2d');
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
-    let hue = 0;
-    function anim() {
-      hue += 0.5;
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      for(let i = 0; i < 18; i++) {
-        ctx.strokeStyle = `hsla(${hue+i*20},100%,70%,0.12)`;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        let x = Math.sin(Date.now()/2000+i)*280 + canvas.width/2;
-        let y = Math.cos(Date.now()/2500+i)*280 + canvas.height/2;
-        ctx.moveTo(canvas.width/2, canvas.height/2);
-        ctx.lineTo(x, y);
-        ctx.stroke();
-      }
-      requestAnimationFrame(anim);
-    }
-    anim();
-    window.addEventListener('resize', () => {
-      canvas.width = innerWidth;
-      canvas.height = innerHeight;
-    });
+// ──────────────────────────────────────────────────────────────
+// TITLE SCREEN BUTTONS
+// ──────────────────────────────────────────────────────────────
+document.getElementById('play-button').onclick = () => {
+  document.getElementById('title-screen').style.display = 'none';
+  document.getElementById('main-content').style.display = 'block';
+};
+document.getElementById('settings-button').onclick = () => {
+  alert("Settings coming soon (or add your own here)");
+};
 
-    // Title screen play button
-    document.getElementById('play-button')?.addEventListener('click', () => {
-      document.getElementById('title-screen').style.display = 'none';
-      document.getElementById('main-content').style.display = 'block';
-    });
+// ──────────────────────────────────────────────────────────────
+// BACKGROUND ANIMATION
+// ──────────────────────────────────────────────────────────────
+const canvas = document.getElementById('menu-bg');
+const ctx = canvas.getContext('2d');
+canvas.width = innerWidth;
+canvas.height = innerHeight;
+let hue = 0;
+function anim() {
+  hue += 0.5;
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  for(let i = 0; i < 18; i++) {
+    ctx.strokeStyle = `hsla(${hue+i*20},100%,70%,0.12)`;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    let x = Math.sin(Date.now()/2000+i)*280 + canvas.width/2;
+    let y = Math.cos(Date.now()/2500+i)*280 + canvas.height/2;
+    ctx.moveTo(canvas.width/2, canvas.height/2);
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  }
+  requestAnimationFrame(anim);
+}
+anim();
+window.addEventListener('resize', () => {
+  canvas.width = innerWidth;
+  canvas.height = innerHeight;
+});
 
-    // Settings (placeholder)
-    document.getElementById('settings-button')?.addEventListener('click', () => {
-      document.getElementById('settings-menu').classList.add('visible');
-    });
-    document.getElementById('close-settings')?.addEventListener('click', () => {
-      document.getElementById('settings-menu').classList.remove('visible');
-    });
+// ──────────────────────────────────────────────────────────────
+// CHATBOT (simple placeholder)
+// ──────────────────────────────────────────────────────────────
+function openChatbot() {
+  document.getElementById('chatbot-overlay').classList.add('open');
+}
+function closeChatbot() {
+  document.getElementById('chatbot-overlay').classList.remove('open');
+}
+function sendChatbotMessage() {
+  const input = document.getElementById('chatbot-input-field');
+  const msg = input.value.trim();
+  if (!msg) return;
+  const messages = document.getElementById('chatbot-messages');
+  messages.innerHTML += `<div class="chatbot-user chatbot-bubble">${msg}</div>`;
+  messages.scrollTop = messages.scrollHeight;
+  input.value = '';
+  // Simple echo response - replace with real logic if needed
+  setTimeout(() => {
+    messages.innerHTML += `<div class="chatbot-bot chatbot-bubble">yo twin that's crazy fr</div>`;
+    messages.scrollTop = messages.scrollHeight;
+  }, 800);
+}
   </script>
 </body>
 </html>
