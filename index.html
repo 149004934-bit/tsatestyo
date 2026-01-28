@@ -98,11 +98,13 @@
       transition:all .4s;
       box-shadow:var(--gl);
       position:relative;
+      z-index: 10; /* Ensure cards are above other elements */
     }
     .c:hover {
       transform:translateY(-10px);
       box-shadow:0 0 30px rgba(0,255,0,0.8);
       border-color:var(--hv);
+      z-index: 20; /* Bring hovered card to the front */
     }
     .tb {
       width:100%;
@@ -145,6 +147,7 @@
       cursor:pointer;
       border:none;
       text-decoration:none;
+      z-index: 10; /* Ensure buttons are clickable */
     }
     .bt:hover {
       background:linear-gradient(135deg,#ffff00,#ff00ff);
@@ -1280,7 +1283,7 @@
         <div class="in">
           <h2 class="tt">Vril Craft</h2>
           <p class="dc">You can only enter if you are fit to enter<br>You better be T-50 [VRIL]</p>
-          <button onclick="showVril()" class="bt">HEAD TO A LAND DOWN UNDER</button>
+          <button onclick="window.open('https://classic.minecraft.net/', '_blank')" class="bt">HEAD TO A LAND DOWN UNDER</button>
           <div class="tg" style="background:#8B00FF;color:#fff;">VRIL</div>
         </div>
       </div>
@@ -1290,7 +1293,7 @@
         <div class="in">
           <h2 class="tt">Movies Section</h2>
           <p class="dc">49 movies — click any card to watch in new tab [OK]</p>
-          <button onclick="showMovies()" class="bt">ENTER MOVIES</button>
+          <button onclick="window.open('https://drive.google.com/file/d/1BsfceoAMnel10oCnw0rIKxrOG4H_JWn4/view?usp=sharing', '_blank')" class="bt">ENTER MOVIES</button>
           <div class="tg" style="background:#00ff99;color:#000;">MOV</div>
         </div>
       </div>
@@ -1300,7 +1303,7 @@
         <div class="in">
           <h2 class="tt">Emulator</h2>
           <p class="dc">Play classic games in your browser. PlayStation, Nintendo, Sega, and more! [EMU]</p>
-          <button onclick="showEmulator()" class="bt">ENTER EMULATOR</button>
+          <button onclick="window.open('https://149004934-bit.github.io/emulatortestv1/', '_blank')" class="bt">ENTER EMULATOR</button>
           <div class="tg" style="background:#ff00ff;color:#000;">EMU</div>
         </div>
       </div>
@@ -1530,7 +1533,7 @@
         <div class="in">
           <h2 class="tt">Drag Racer V3</h2>
           <p class="dc">ion know what Ts is, was a request so ask Habibi [OK]</p>
-          <button onclick="showDragRacer()" class="bt">GO FS TWIN</button>
+          <button onclick="window.open('https://archive.org/embed/drag_racer_v3', '_blank')" class="bt">GO FS TWIN</button>
           <div class="tg">RACE</div>
         </div>
       </div>
@@ -1540,7 +1543,7 @@
         <div class="in">
           <h2 class="tt">Retro Bowl</h2>
           <p class="dc">you alr know what ts is gng. [FEET]</p>
-          <button onclick="showSkibidi()" class="bt">GO FS TWIN</button>
+          <button onclick="window.open('https://centeredu20.github.io/g5/class-400', '_blank')" class="bt">GO FS TWIN</button>
           <div class="tg" style="background:#320d90;color:#fff;">FUTA</div>
         </div>
       </div>
